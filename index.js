@@ -135,7 +135,7 @@ class Lambdasian {
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
 class Instructor extends Lambdasian {
-  constructor (attributes, specialty, favLanguage, catchPhrase) {
+  constructor (attributes) {
     super(attributes);
     // this.name = attributes.name;
     // this.age = attributes.age;
@@ -152,6 +152,7 @@ grade(student, subject){
 }
 changeGrade(student, subject) {
   return student.grade += (Math.random() - 0.5) * 10;
+  
 }
 
 }
@@ -172,12 +173,13 @@ changeGrade(student, subject) {
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian {
-  constructor (attributes, previousBackground, className, favSubjects, grade) {
+  constructor (attributes) {
     super(attributes);
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
     this.grade = 100;
+    //console.log(this.grade);
   }
 listSubjects(){
   return this.favSubjects;
@@ -190,7 +192,7 @@ sprintChallenge(subject){
 }
 graduate() {
   if (this.grade > 0.7) {
-    return `Graduated!`;
+    return console.log(`Graduated!`);
   }
   else {
     return this.grade;
@@ -212,7 +214,7 @@ graduate() {
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
 class ProjectManager extends Instructor{
-  constructor(attributes, gradClassName, favInstructor) {
+  constructor(attributes) {
     super(attributes);
 
     this.gradClassName = attributes.gradClassName;
@@ -220,10 +222,12 @@ class ProjectManager extends Instructor{
   }
  standUp(channel){
   return `${this.name} announces to ${channel}, @channel standy times!`;
+  
  }
  debugsCode(student, subject){
   return `${this.name} debugs ${student.name}'s code on ${subject}'`;
  }
+ 
 }
 
 /*
