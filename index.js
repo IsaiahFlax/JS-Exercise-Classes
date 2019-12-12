@@ -150,6 +150,10 @@ demo(subject){
 grade(student, subject){
   return `${student.name} receives a perfect score on ${subject}`;
 }
+changeGrade(student, subject) {
+  return student.grade += (Math.random() - 0.5) * 10;
+}
+
 }
 
 /*
@@ -168,11 +172,12 @@ grade(student, subject){
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
 class Student extends Lambdasian {
-  constructor (attributes, previousBackground, className, favSubjects) {
+  constructor (attributes, previousBackground, className, favSubjects, grade) {
     super(attributes);
     this.previousBackground = attributes.previousBackground;
     this.className = attributes.className;
     this.favSubjects = attributes.favSubjects;
+    this.grade = 100;
   }
 listSubjects(){
   return this.favSubjects;
@@ -182,6 +187,14 @@ PRAssignment(subject){
 }
 sprintChallenge(subject){
   return `${this.name} has begun sprint challenge on ${subject}`;
+}
+graduate() {
+  if (this.grade > 0.7) {
+    return `Graduated!`;
+  }
+  else {
+    return this.grade;
+  }
 }
 }
 
